@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles to Kilometers Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+        input, button {
+            padding: 12px;
+            margin: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Miles to Kilometers Converter</h1>
+    <div class="form-container">
+        <form id="convertForm">
+            <input type="number" id="miles" placeholder="Enter miles" required>
+            <button type="submit">Convert</button>
+        </form>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('convertForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the miles value entered by the user
+            const miles = document.getElementById('miles').value;
+
+            // Build the URL for the web service
+            const url = `http://127.0.0.1:5000/convert?miles=${miles}`;
+
+            // Make the API request
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Display the result
+                    if (data.kilometers) {
+                        document.getElementById('result').innerHTML = `${miles} miles is equal to ${data.kilometers.toFixed(2)} kilometers.`;
+                    } else {
+                        document.getElementById('result').innerHTML = data.error;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = "Error in conversion. Please try again.";
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+
+</body>
+</html>
+

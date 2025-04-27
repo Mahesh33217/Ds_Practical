@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+        input, button {
+            padding: 12px;
+            margin: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Greeting Service</h1>
+    <div class="form-container">
+        <form id="greetForm">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <button type="submit">Greet Me!</button>
+        </form>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('greetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the name entered by the user
+            const name = document.getElementById('name').value;
+
+            // Build the URL for the web service
+            const url = `http://127.0.0.1:5000/greet?name=${name}`;
+
+            // Make the API request
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Display the result
+                    const result = data.greeting;
+                    document.getElementById('result').innerHTML = result;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = "Error in greeting. Please try again.";
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+
+</body>
+</html>
+

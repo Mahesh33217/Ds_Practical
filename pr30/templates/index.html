@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .form-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            width: 300px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+    <div class="form-container">
+        <form action="/add" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Add</button>
+        </form>
+        <form action="/subtract" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Subtract</button>
+        </form>
+        <form action="/multiply" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Multiply</button>
+        </form>
+        <form action="/divide" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Divide</button>
+        </form>
+    </div>
+
+</body>
+</html>
+

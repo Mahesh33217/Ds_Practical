@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;  /* Ensures it doesn't stretch too wide */
+        }
+        input, button {
+            padding: 12px;
+            margin: 8px 0;  /* Add space between input and button */
+            width: calc(100% - 24px);     /* Ensure input boxes take up the full width of the container */
+            box-sizing: border-box; /* Prevent padding from causing overflow */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            width: 100%;  /* Button should take full width */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            width: 100%;  /* Ensure the form uses full width */
+            display: block;  /* Makes each form display as a block, vertically aligned */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+    <div class="form-container">
+        <!-- Form for Addition -->
+        <form action="/add" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <!-- Form for Subtraction -->
+        <form action="/subtract" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Subtract</button>
+        </form>
+
+        <!-- Form for Multiplication -->
+        <form action="/multiply" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Multiply</button>
+        </form>
+
+        <!-- Form for Division -->
+        <form action="/divide" method="get">
+            <input type="number" name="a" placeholder="Enter first number" required>
+            <input type="number" name="b" placeholder="Enter second number" required>
+            <button type="submit">Divide</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
