@@ -21,5 +21,23 @@ idlj -fall Reverse.idl
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 
-Mpi Commands
+**Mpi Commands**
+
+1) nano ~/.bashrc
+2) export MPJ_HOME=/home/..../mpj
+3) export PATH=$PATH:$MPJ_HOME/bin
+4) source ~/.bashrc
+
+5) javac -cp mpj/lib/mpj.jar fileName.java
+6) mpjrun.sh -cp . -np 4 fileName
+
+(extract mpj in same directory)
+https://sourceforge.net/projects/mpjexpress/files/releases/
+
+Crtl O enter cntrl x
+
+
+repo
+https://bitly.cx/IWgI
+http://bit.ly/ThalaDs
 
